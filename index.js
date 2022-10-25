@@ -70,8 +70,11 @@ async function draw(image) {
     const container = document.createElement('div');
     const title = document.createElement('h4');
     title.textContent = labels[i];
+    const dimensions = document.createElement('p');
+    dimensions.textContent = `Dimensions: ${x.width} x ${x.height}`;
 
     container.appendChild(title);
+    container.appendChild(dimensions);
     container.appendChild(canvas);
     container1.appendChild(container);
   });
@@ -89,8 +92,11 @@ async function draw(image) {
     const container = document.createElement('div');
     const title = document.createElement('h4');
     title.textContent = labels[i];
+    const dimensions = document.createElement('p');
+    dimensions.textContent = `Dimensions: ${x.width} x ${x.height}`;
 
     container.appendChild(title);
+    container.appendChild(dimensions);
     container.appendChild(canvas);
     container2.appendChild(container);
   });
