@@ -1,0 +1,24 @@
+{
+  "name": "imagebitmap-exif-orientation-reproduction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"http-server . --port 8080\" \"http-server . --cors --port 8081\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Cimpress-Technology/artwork-design/rembrandt-squad/internal/canvas-image-orientation-reproduction.git"
+  },
+  "keywords": [],
+  "author": "Timon van Spronsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Cimpress-Technology/artwork-design/rembrandt-squad/internal/canvas-image-orientation-reproduction/issues"
+  },
+  "homepage": "https://gitlab.com/Cimpress-Technology/artwork-design/rembrandt-squad/internal/canvas-image-orientation-reproduction#readme",
+  "devDependencies": {
+    "concurrently": "^7.5.0",
+    "http-server": "^14.1.1"
+  }
+}
