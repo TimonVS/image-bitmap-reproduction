@@ -11,7 +11,9 @@
 
 ### Chrome 106
 
-`Image` --> `ImageBitmap` is cut off when `dWidth` and `dHeight` is provided to `ctx.drawImage`, it's stretched when `dWidth` and `dHeight` is omitted from the `ctx.drawImage`.
+`Image` --> `ImageBitmap` is cut off when `dWidth` and `dHeight` is provided to `ctx.drawImage`, it's stretched when `dWidth` and `dHeight` is omitted from the `ctx.drawImage`. Additionally, the image dimensions are flipped.
+
+Adding `img.crossOrigin = 'anonymous'` to `fetchImage` seems to resolve the issue.
 
 ![](media/chrome_106.png)
 

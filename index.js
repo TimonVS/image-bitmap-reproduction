@@ -48,20 +48,20 @@ function createCanvas(width, height) {
 
 async function draw(image) {
   // Prepare images
-  const [blob, img] = await Promise.all([fetchImageAsBlob(image.url), await fetchImage(image.url)]);
-  const [blobImageBitmap, imgImageBitmap] = await Promise.all([createImageBitmap(blob), createImageBitmap(img)]);
+  const [blob, img, imgAnonymous] = await Promise.all([fetchImageAsBlob(image.url), await fetchImage(image.url), await fetchImage(image.url, true)]);
+  const [blobImageBitmap, imgImageBitmap, imgAnonymousImageBitmap] = await Promise.all([createImageBitmap(blob), createImageBitmap(img), createImageBitmap(imgAnonymous)]);
 
   const sectionTitle = document.createElement('h2');
   sectionTitle.textContent = image.name;
   document.body.appendChild(sectionTitle);
 
-  const labels = ['Blob --> ImageBitmap', 'Image', 'Image --> ImageBitmap'];
+  const labels = ['Blob --> ImageBitmap', 'Image', 'Image --> ImageBitmap', 'Image (crossOrigin=anonymous) --> ImageBitmap'];
 
   const container1 = document.createElement('div');
   container1.style.display = 'flex';
 
   // Draw images without explicit dimensions
-  [blobImageBitmap, img, imgImageBitmap].forEach((x, i) => {
+  [blobImageBitmap, img, imgImageBitmap, imgAnonymousImageBitmap].forEach((x, i) => {
     const [canvas, context] = createCanvas(200, 200);
     canvas.style.border = '2px solid blue';
 
@@ -83,7 +83,7 @@ async function draw(image) {
   container2.style.display = 'flex';
 
   // Draw images with dimensions (unresized)
-  [blobImageBitmap, img, imgImageBitmap].forEach((x, i) => {
+  [blobImageBitmap, img, imgImageBitmap, imgAnonymousImageBitmap].forEach((x, i) => {
     const [canvas, context] = createCanvas(200, 200);
     canvas.style.border = '2px solid red';
 
